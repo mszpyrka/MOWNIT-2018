@@ -52,10 +52,12 @@ void print_time(double t)
 
 int main() {
 
+    printf("\"operation\";\"size\";\"time\"\n");
+
     srand(time(NULL));
 
-    int vector_sizes[] = {100, 500, 1000, 5000, 10000, 20000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000};
-    int vectors_number = 13;
+    int vector_sizes[] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000};
+    int vectors_number = 10;
 
     for(int i = 0; i < vectors_number; i++) {
 
@@ -73,7 +75,7 @@ int main() {
             gettimeofday(&tv_end, NULL);
             double time = subtract_time(tv_end, tv_start);
 
-            printf("vector 'dot' vector,%d,%f\n", vector_sizes[i], time);
+            printf("\"v o v\";%d;%f\n", vector_sizes[i], time);
 
             free(result);
             gsl_vector_free(vector_a);
@@ -81,7 +83,7 @@ int main() {
         }
     }
 
-    int matrix_sizes[] = {100, 500, 1000, 5000, 10000, 20000, 50000, 100000};
+    int matrix_sizes[] = {100, 500, 1000, 4000, 8000, 12000, 16000, 20000};
     int matrices_number = 8;
 
     for(int i = 0; i < matrices_number; i++) {
@@ -100,19 +102,11 @@ int main() {
             gettimeofday(&tv_end, NULL);
             double time = subtract_time(tv_end, tv_start);
 
-            printf("matrix * vector,%d,%f\n", matrix_sizes[i], time);
+            printf("\"m * v\";%d;%f\n", matrix_sizes[i], time);
 
             gsl_vector_free(result);
             gsl_vector_free(vector);
             gsl_matrix_free(matrix);
         }
     }
-
-
-    struct timeval tv_start, tv_end;
-    gettimeofday(&tv_start, NULL);
-    gsl_matrix *v = get_random_matrix(1000, 10000);
-    gettimeofday(&tv_end, NULL);
-    print_time(subtract_time(tv_end, tv_start));
-
 }
