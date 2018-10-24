@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define FLOATING_PRECISION float
+#define FLOATING_PRECISION double
 
 FLOATING_PRECISION iterative_sum(FLOATING_PRECISION* array, int size) {
 
