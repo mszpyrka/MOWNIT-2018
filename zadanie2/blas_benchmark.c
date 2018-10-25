@@ -56,8 +56,8 @@ int main() {
 
     srand(time(NULL));
 
-    int vector_sizes[] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000};
-    int vectors_number = 10;
+    int vector_sizes[] = {1000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 20000000, 30000000, 40000000, 50000000};
+    int vectors_number = 12;
 
     for(int i = 0; i < vectors_number; i++) {
 
@@ -83,8 +83,8 @@ int main() {
         }
     }
 
-    int matrix_sizes[] = {100, 500, 1000, 4000, 8000, 12000, 16000, 20000};
-    int matrices_number = 8;
+    int matrix_sizes[] = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000, 12100, 14400, 16900, 19600};
+    int matrices_number = 14;
 
     for(int i = 0; i < matrices_number; i++) {
 
